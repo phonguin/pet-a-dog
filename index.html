@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#f3d9b1" />
+  <title>강아지 벅벅 3D - 품종별 강아지 교감 게임</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 따뜻한 방 배경 (2D) -->
+  <canvas id="bg"></canvas>
+
+  <!-- 3D 강아지 (입력은 여기서 받음) -->
+  <canvas id="game3d"></canvas>
+
+  <!-- 하트/반짝임/털 파티클 오버레이 (2D, 클릭 통과) -->
+  <canvas id="fx"></canvas>
+
+  <!-- UI 오버레이 -->
+  <div id="ui">
+    <!-- 강아지 기분 텍스트 (상단 중앙) -->
+    <div id="mood">새근새근…</div>
+
+    <!-- 좌측 상단: 유대감 게이지 -->
+    <div id="bond">
+      <span id="bondHeart">🤍</span>
+      <div id="bondBarWrap"><div id="bondBar"></div></div>
+      <span id="bondLv">Lv.1</span>
+    </div>
+
+    <!-- 우측 상단 버튼들 -->
+    <div id="buttons">
+      <button id="btnBreed" class="soft-btn" title="품종 선택">☁️ 말티즈</button>
+      <button id="btnSound" class="soft-btn" title="소리 켜기/끄기">소리 켜기</button>
+      <button id="btnShot" class="soft-btn" title="지금 화면을 사진으로 저장">사진</button>
+    </div>
+
+    <!-- 처음 안내 문구 -->
+    <div id="hint">
+      <div class="hint-title">강아지 벅벅 3D</div>
+      <div class="hint-sub">강아지를 <b>벅벅</b> 문질러 주세요</div>
+      <div class="hint-mini">머리 · 몸 · 다리 · 꼬리 · 엉덩이 — 부위와 도구마다 반응이 달라요</div>
+      <div class="hint-mini">🖱️ <b>좌클릭</b> 도구로 만지기 · <b>우클릭</b> 바닥을 찍으면 그곳으로 달려가요!</div>
+      <div class="hint-mini">🐶 우측 상단 버튼에서 <b>9가지 품종</b>을 골라보세요 — 품종마다 성격도 달라요!</div>
+    </div>
+  </div>
+
+  <!-- 품종 선택 패널 -->
+  <div id="breedPicker" class="panel" style="display:none">
+    <div class="panel-head">
+      <div class="panel-title">🐶 우리 강아지 고르기</div>
+      <button id="breedClose" class="soft-btn">닫기</button>
+    </div>
+    <div class="panel-sub">품종마다 생김새도, 성격도, 반응도 달라요. 눌러서 바로 만나보세요!</div>
+    <div id="breedGrid"></div>
+  </div>
+
+  <!-- 스크립트: three → 오디오 → 품종 → 도구 → 강아지 → 입력 → 메인 -->
+  <script src="js/three.min.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/breeds.js"></script>
+  <script src="js/tools.js"></script>
+  <script src="js/dog3d.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
